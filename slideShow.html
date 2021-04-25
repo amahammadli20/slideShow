@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background: rgb(165, 176, 187);
+        }
+        .main-section{
+            width: 600px;
+            margin-top: 5px;
+        }
+        button{
+            width: 120px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 30px;
+            color: rgb(11, 11, 75);
+            background:mintcream;
+        }
+
+        button:hover{
+            border: 2px solid rgb(11, 11, 75);
+        }
+
+        .buttons-div{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        img{
+            width: 600px;
+            height: 400px;
+            border-radius: 5px;
+        }
+
+        h2{
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            color: rgb(11, 11, 75);
+
+        }
+    </style>
+</head>
+<body>
+    <section class = "main-section">
+        <h2>Explore the Nature</h2>
+        <div class = "buttons-div">
+            <button id = "startButton">Start</button>
+            <button id = "stopButton">Stop</button>
+        </div>
+        <div id = "img-div"><img id = "img" src = "https://i.imgur.com/9zFPkQU.jpg"></div>
+    </section>
+
+    <script>
+        var images = ["https://i.pinimg.com/originals/b8/94/53/b894532b675a98ab75380cbdb9214421.jpg" ,"https://images.milledcdn.com/2018-10-16/en2e94pa0lxBw1pe/ZC33baeVY8pl.jpg" ,"https://piximus.net/media/36091/beautiful-places-around-the-world-6-1.jpg" ,"https://i.pinimg.com/originals/0e/2a/d2/0e2ad261e78bc62e4bb676ce456ff384.jpg" ,"https://wallpapercave.com/wp/J4zSicv.jpg", "https://tea-talk.in/wp-content/uploads/2019/01/summer-5-e1548226678492.jpg", "https://www.superiorwallpapers.com/images/lthumbs/2017-12/12523_Amazing-blue-and-white-frozen-nature-Cold-winter-season.jpg", "https://www.azernews.az/media/2018/01/22/aggel.jpg", "https://upload.wikimedia.org/wikipedia/commons/8/83/Shaki_Waterfall2.jpg"] 
+        var i = 0;
+        var interval = undefined;
+    
+
+        document.querySelector("#startButton").onclick = function(){
+        clearInterval(interval);    
+        interval = setInterval(function(){
+                document.querySelector("#img").src = images[i];
+                if(i < images.length-1){ 
+                    i++;
+                }else{
+                    i = 0;
+                }
+        }, 3000);
+        }
+
+        document.querySelector("#stopButton").onclick = function(){
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>
